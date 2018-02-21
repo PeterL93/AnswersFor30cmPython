@@ -8,7 +8,7 @@ from openpyxl.workbook import Workbook as openpyxlWorkbook
 def download_file(url):
     split = url.split("/")
     file_name = split[len(split) - 1]
-    print(file_name)
+    print("Downloaded " + file_name)
     r = requests.get(url, stream=True)
     if r.status_code == 200:
         with open(file_name, 'wb') as f:

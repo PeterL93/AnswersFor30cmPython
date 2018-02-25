@@ -19,9 +19,10 @@ def download_file(url):
             shutil.copyfileobj(r.raw, f)
 
 
-download_file("https://ucr.fbi.gov/crime-in-the-u.s/2013/crime-in-the-u.s.-2013/tables/1tabledatadecoverviewpdf/"
-              "table_1_crime_in_the_united_states_by_volume_and_rate_per_100000_inhabitants_1994-2013.xls/output.xls")
-download_file("https://ucr.fbi.gov/crime-in-the-u.s/2013/crime-in-the-u.s.-2013/tables/table-8/table_8_offenses_known_to_law_enforcement_by_state_by_city_2013.xls")
+#download_file("https://ucr.fbi.gov/crime-in-the-u.s/2013/crime-in-the-u.s.-2013/tables/1tabledatadecoverviewpdf/"
+#             "table_1_crime_in_the_united_states_by_volume_and_rate_per_100000_inhabitants_1994-2013.xls/output.xls")
+#download_file("https://ucr.fbi.gov/crime-in-the-u.s/2013/crime-in-the-u.s.-2013/tables/table-8/table_8_offenses_known_to_law_enforcement_by_state_by_city_2013.xls")
+
 
 def average_crime_per_year(sheet, row_num):
     return sheet.cell(row_num, 3).value + sheet.cell(row_num, 13).value
@@ -32,7 +33,7 @@ def answer(avg1995, avg2013):
     print(avg2013)
 
     if avg1995 > avg2013:
-        return "Crime decresed since 1995 until 2013 by " + str(round(100 - avg2013 * 100 / avg1995, 2)) + "%"
+        return "Crime decreased since 1995 until 2013 by " + str(round(100 - avg2013 * 100 / avg1995, 2)) + "%"
     else:
         return "Crime increased since 1995 until 2013 by " + str(round(100 - avg1995 * 100 / avg2013, 2)) + "%"
 
@@ -41,11 +42,13 @@ def first_question():
     xlsBook = xlrd.open_workbook('./output.xls')
     sheet = xlsBook.sheet_by_index(0)
 
-    print(answer(average_crime_per_year(sheet, 4), average_crime_per_year(sheet, 23)))
+    print(answer(average_crime_per_year(sheet, 4),
+                 average_crime_per_year(sheet, 23)))
 
 
 first_question()
 
+# Second question:
 def average_murder_per_year(sheet, row_num):
     return sheet.cell(row_num, 5).value
 def average_rape_per_year(sheet, row_num):
@@ -87,3 +90,39 @@ def second_question():
     print("Check the new png file created in the directory")
     
 second_question()
+
+#fifth question: 
+def year(sheet, row_num):
+    return sheet.cell(row_num, 0).value
+def violent_crimes(sheet, row_num):
+    return sheet.cell(row_num, 3).value
+def property_crimes(sheet, row_num):
+    return sheet.cell(row_num, 13).value
+
+def fifth_questions():
+    xlsBook = xlrd.open_workbook('./output.xls')
+    sheet = xlsBook.sheet_by_index(0)
+
+    crimes1995 = np.array([violent_crimes(sheet, 4), property_crimes(sheet, 4)])
+    crimes2013 = np.array([violent_crimes(sheet, 23), property_crimes(sheet, 23)])
+
+    print(crimes1995)
+    print(crimes2013)
+
+    fig = plt.figure()
+    x = np.array([0,1])
+    my_xticks = ["Violent Crimes", "Property Crimes"]
+    plt.xticks(x, my_xticks)
+    num_crimes1995 = plt.bar(my_xticks, crimes1995, color='r')
+    num_crimes2013 = plt.bar(my_xticks, crimes2013, color='b')
+    plt.legend((num_crimes1995[0], num_crimes2013[0]), ("1995", "2013"))
+    plt.title("Average Crimes commited ")
+    plt.xlabel("Type of crimes")
+    plt.ylabel("Average crime rate")
+
+    fig.savefig('Question5.png')
+
+    print("Picture saved as + Question5.png")
+
+fifth_questions()
+    

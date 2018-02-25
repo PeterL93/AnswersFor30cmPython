@@ -32,6 +32,6 @@ plt.title("Average Crimes commited ")
 plt.xlabel("Type of crimes")
 plt.ylabel("Average crime rate")
 
-fig.savefig('Question5.png')
+fig.savefig('question_five.png')
 
 print("Picture saved as + Question5.png")

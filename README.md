@@ -13,8 +13,7 @@ Dataset related questions:
 5. Question Five: Which year was the most crime and what crime occured most times?
 
 Year with most crime was: 1994 with a total of 13989543 various crimes commited.
-Most frequent crime was Larceny-
-theft with a total of 7997710 occurrences in the year 1995.
+Most frequent crime was Larceny-theft with a total of 7997710 occurrences in the year 1995.
 
 Location based dataset: https://ucr.fbi.gov/crime-in-the-u.s/2013/crime-in-the-u.s.-2013/tables/table-8/table_8_offenses_known_to_law_enforcement_by_state_by_city_2013.xls/view
 

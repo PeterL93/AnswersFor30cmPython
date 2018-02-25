@@ -5,17 +5,17 @@ Answers from the group Success Impossible!
 
 Dataset related questions:
 
-1. Has the crime decreased or increased over the last 20 years?
+1. Question One: Has the crime decreased or increased over the last 20 years?
 - Affirmative
 
-2. Has the type of crime changed?
+2. Question Two: Has the type of crime changed?
 
-5. Which year was the most crime and what crime occured most times?
+5. Question Five: Which year was the most crime and what crime occured most times?
 
 Location based dataset: https://ucr.fbi.gov/crime-in-the-u.s/2013/crime-in-the-u.s.-2013/tables/table-8/table_8_offenses_known_to_law_enforcement_by_state_by_city_2013.xls/view
 
 Dataset related questions:
 
-3. Has the crime moved to from one area to another?
+3. Question Three: Has the crime moved to from one area to another?
 
-4. Is there a connection between type of crimes and locations?
+4. Question Four: Is there a connection between type of crimes and locations?

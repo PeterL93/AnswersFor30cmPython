@@ -6,7 +6,7 @@ import xlrd
 def download_file(file_name, url):
     split = url.split("/")
     og_file_name = split[len(split) - 1]
-    print("Downloaded " + og_file_name)
+    print("Downloaded " + file_name)
     r = requests.get(url, stream=True)
     if r.status_code == 200:
         with open(og_file_name, 'wb') as f:

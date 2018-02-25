@@ -15,23 +15,28 @@ def property_crimes(sheet, row_num):
 
 sheet = get_years_sheet()
 
-crimes1995 = np.array([violent_crimes(sheet, 4), property_crimes(sheet, 4)])
-crimes2013 = np.array([violent_crimes(sheet, 23), property_crimes(sheet, 23)])
+crimes1995 = (violent_crimes(sheet, 4), property_crimes(sheet, 4))
+crimes2013 = (violent_crimes(sheet, 23), property_crimes(sheet, 23))
 
 print(crimes1995)
 print(crimes2013)
 
 fig = plt.figure()
-x = np.array([0, 1])
-my_xticks = ["Violent Crimes", "Property Crimes"]
-plt.xticks(x, my_xticks)
-num_crimes1995 = plt.bar(my_xticks, crimes1995, color='r')
-num_crimes2013 = plt.bar(my_xticks, crimes2013, color='b')
+
+ind = np.arange(2)
+
+num_crimes1995 = plt.bar(ind, crimes1995, color='r')
+num_crimes2013 = plt.bar(ind, crimes2013, color='b')
+
+plt.xticks(ind, ('Violent Crimes', 'Property Crimes'))
+
 plt.legend((num_crimes1995[0], num_crimes2013[0]), ("1995", "2013"))
-plt.title("Average Crimes commited ")
+plt.title("Average Crimes commited")
 plt.xlabel("Type of crimes")
 plt.ylabel("Average crime rate")
 
-fig.savefig('question_five.png')
+fig_name = "question_five.png"
 
-print("Picture saved as + Question5.png")
+fig.savefig(fig_name)
+
+print("Picture saved as " + fig_name)

@@ -83,5 +83,7 @@ def second_question():
     plt.ylabel("Rate")
 
     fig.savefig('test.png')
+
+    print("Check the new png file created in the directory")
     
 second_question()

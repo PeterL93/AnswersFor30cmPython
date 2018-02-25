@@ -65,8 +65,8 @@ def second_question():
     xlsBook = xlrd.open_workbook('./output.xls')
     sheet = xlsBook.sheet_by_index(0)
 
-    crimes_1995 = [average_murder_per_year(sheet, 4), average_rape_per_year(sheet, 4), average_robbery_per_year(sheet, 4), average_aggravated_assault_per_year(sheet, 4), average_burglary_per_year(sheet, 4), average_larceny_per_year(sheet, 4), average_vehicle_theft_per_year(sheet, 4)]
-    crimes_2013 = [average_murder_per_year(sheet, 23), average_rape_per_year(sheet, 23), average_robbery_per_year(sheet, 23), average_aggravated_assault_per_year(sheet, 23), average_burglary_per_year(sheet, 23), average_larceny_per_year(sheet, 23), average_vehicle_theft_per_year(sheet, 23)]
+    crimes_1995 = np.array([average_murder_per_year(sheet, 4), average_rape_per_year(sheet, 4), average_robbery_per_year(sheet, 4), average_aggravated_assault_per_year(sheet, 4), average_burglary_per_year(sheet, 4), average_larceny_per_year(sheet, 4), average_vehicle_theft_per_year(sheet, 4)])
+    crimes_2013 = np.array([average_murder_per_year(sheet, 23), average_rape_per_year(sheet, 23), average_robbery_per_year(sheet, 23), average_aggravated_assault_per_year(sheet, 23), average_burglary_per_year(sheet, 23), average_larceny_per_year(sheet, 23), average_vehicle_theft_per_year(sheet, 23)])
 
     print(crimes_1995)
     print(crimes_2013)
